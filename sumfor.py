@@ -1,6 +1,18 @@
 from fractions import Fraction
 import re
 import numpy as np
+import argparse
+
+
+# Initialize parser
+parser = argparse.ArgumentParser()
+ 
+# Adding optional argument
+parser.add_argument("-f", "--formula")
+parser.add_argument("-v",'--version', action='version', version='%(prog)s 1.0',help = 'show version')
+
+# Read arguments from command line
+args = parser.parse_args()
 
 def listToString(s): #Convert list to string
     
@@ -134,11 +146,7 @@ def Sum_Formula(in_for): #Find sum formula
 	#print(formula)
 	return formula
 
-in_for = "x^3-x^2+x"
+#in_for = "x^3-x^2+x"
 
-formula = Sum_Formula(in_for)
+formula = Sum_Formula(args.formula)
 print(formula)
-
-
-
-

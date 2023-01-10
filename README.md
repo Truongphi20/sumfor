@@ -1,0 +1,1 @@
+Creat sum formula of polinomial functions

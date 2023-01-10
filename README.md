@@ -1,4 +1,4 @@
-Creat sum formula of polinomial functions
+Create sum formula of polinomial functions
 =========================================
 
 This algorithm help compute the sum formula of known function, from 1 to somewhere. 

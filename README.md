@@ -1,7 +1,7 @@
 Create sum formula of polinomial functions
 =========================================
 
-This algorithm help compute the sum formula of known function, from 1 to somewhere. 
+This algorithm help compute the sum formula of known function. 
 
 # Usage
 ## Check algorithm work
@@ -10,19 +10,23 @@ This algorithm help compute the sum formula of known function, from 1 to somewhe
     
 Output:
 
-    usage: sumfor.py [-h] [-f FORMULA] [-v]
+    usage: sumfor.py [-h] [-f FORMULA] [-v] [-s START]
 
     optional arguments:
-    -h, --help            show this help message and exit
-    -f FORMULA, --formula FORMULA
-    -v, --version         show version
+      -h, --help            show this help message and exit
+      -f FORMULA, --formula FORMULA
+                            Sum formula of function
+      -v, --version         show version
+      -s START, --start START
+                            Start point (default = 1)
 
 To use the algorithm, use the following syntax:
     
-    python .\sumfor.py -f <formula input>
+    python .\sumfor.py -f <formula input> -s <start point>
 
 ##  Example
-For example, we have to compute the sum formula of the $x^3-2x^2+1$ function from $1$, mean $\sum\limits_{i = 1}^x {{x^3} - {2x^2} + 1}$.
+### Example 1
+For example, we have to compute the sum formula of the $x^3-2x^2+1$ function from $1$, mean $\sum\limits_{i = 1}^x {({x^3} - {2x^2} + 1)}$.
 
 Running algorithm by the following syntax to find the sum formula.
 
@@ -36,6 +40,21 @@ So the sum formula of $x^3-x^2+1$ from $1$ is $\frac{2}{3}x - \frac{3}{4}{x^2} -
 
 It means:
 $$\sum\limits_{i = 1}^x {{x^3} - {2x^2} + 1} = \frac{2}{3}x - \frac{3}{4}{x^2} - \frac{1}{6}{x^3} + \frac{1}{4}{x^4}$$
+
+### Example 2
+If we need to compute the sum formula of the $x^2-1$ from $-1$, mean $\sum\limits_{i = -1}^x {({x^2} - 1)}$.
+
+Similarly, we execute the following syntax:
+
+       python .\sumfor.py -f x^2-1 -s -1
+       
+Output:
+        
+        3x^0-5/6*x^1+1/2*x^2+1/3*x^3
+
+Mean:
+
+$$\sum\limits_{i = -1}^x {({x^2} - 1)} = 3 - \frac{5}{6}x + \frac{1}{2}{x^2} + \frac{1}{3}{x^3}$$
 
 # Algorithm mechanism
 

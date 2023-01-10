@@ -22,7 +22,7 @@ To use the algorithm, use the following syntax:
     python .\sumfor.py -f <formula input>
 
 ##  Example
-For example, we have to compute the sum formula of the $x^3-x^2+1$ function from $1$, mean $\sum\limits_{i = 1}^x {{x^3} - {2x^2} + 1}$.
+For example, we have to compute the sum formula of the $x^3-2x^2+1$ function from $1$, mean $\sum\limits_{i = 1}^x {{x^3} - {2x^2} + 1}$.
 
 Running algorithm by the following syntax to find the sum formula.
 

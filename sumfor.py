@@ -8,8 +8,9 @@ import argparse
 parser = argparse.ArgumentParser()
  
 # Adding optional argument
-parser.add_argument("-f", "--formula")
+parser.add_argument("-f", "--formula", help = "Sum formula of function")
 parser.add_argument("-v",'--version', action='version', version='%(prog)s 1.0',help = 'show version')
+parser.add_argument("-s", "--start", default= "1", help = "Start point (default = 1)")
 
 # Read arguments from command line
 args = parser.parse_args()
@@ -146,7 +147,28 @@ def Sum_Formula(in_for): #Find sum formula
 	#print(formula)
 	return formula
 
+def findc(in_for,num): # Find constant
+	tem = in_for.replace('^','**')
+	constant = -1*Fraction(eval(tem.replace('x', num)))
+	#print(constant)
+	return constant
+
+def find_final(formula,start):
+	formula = Sum_Formula(formula)
+	#print(formula)
+
+	constant = findc(formula,str(Fraction(start)-1))
+	#print(constant)
+
+	if constant != 0:
+		final_for = str(constant)+"x^0"+formula
+	else:
+		final_for = formula
+
+	#print(final_for)
+	return final_for
+
 #in_for = "x^3-x^2+x"
 
-formula = Sum_Formula(args.formula)
-print(formula)
+final = find_final(args.formula,args.start)
+print(final)

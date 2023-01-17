@@ -10,7 +10,7 @@ This algorithm help compute the sum formula of known function.
     
 Output:
 
-    usage: sumfor.py [-h] [-f FORMULA] [-v] [-s START]
+    usage: sumfor.py [-h] [-f FORMULA] [-v] [-s START] [-t STEP]
 
     optional arguments:
       -h, --help            show this help message and exit
@@ -19,10 +19,11 @@ Output:
       -v, --version         show version
       -s START, --start START
                             Start point (default = 1)
+      -t STEP, --step STEP  Step (default = 1)
 
 To use the algorithm, use the following syntax:
     
-    python .\sumfor.py -f <formula input> -s <start point>
+    python .\sumfor.py -f <formula input> -s <start point> -t <step>
 
 ##  Example
 ### Example 1
@@ -56,6 +57,9 @@ Mean:
 
 $$\sum\limits_{i = -1}^x {({x^2} - 1)} = 3 - \frac{5}{6}x + \frac{1}{2}{x^2} + \frac{1}{3}{x^3}$$
 
+### Example 3
+
+
 # Algorithm mechanism
 
 ## The basis
@@ -75,4 +79,5 @@ $$
 - Determine the largest power exponent
 - Multiply coefficients by the corresponding sum formula 
 - Add the sum formulas together
- 
+
+## Introduction to the Hit Sum Function

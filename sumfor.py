@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-f", "--formula", help = "Sum formula of function")
 parser.add_argument("-v",'--version', action='version', version='%(prog)s 1.0',help = 'show version')
 parser.add_argument("-s", "--start", default= "1", help = "Start point (default = 1)")
+parser.add_argument("-t", "--step", default= "1", help = "Step (default = 1)")
 
 # Read arguments from command line
 args = parser.parse_args()
@@ -98,23 +99,24 @@ def calculate_vals(in_for): # Compute values
 	#print(final_vals)
 	return final_vals
 
-def power_eff(in_for): # Calculate power efficiency
+def power_eff(in_for,step): # Calculate power efficiency
 	vals = calculate_vals(in_for)
-	#print(vals)
+	# print(vals)
 
 	dic_rs = {}
-	for lists in vals:
+	for order_list, lists in enumerate(vals):
+		#print(order_list)
 		for order_val, val in enumerate(lists):
 			if order_val+1 not in dic_rs:
-				dic_rs[order_val+1] = val 
+				dic_rs[order_val+1] = val*step**order_list 
 			else:
-				dic_rs[order_val+1] += val 
+				dic_rs[order_val+1] += val*step**order_list
 
 	#print(dic_rs)
 	return dic_rs
 
-def Sum_Formula(in_for): #Find sum formula 
-	eff = power_eff(in_for)
+def Sum_Formula(in_for,step): #Find sum formula 
+	eff = power_eff(in_for,step)
 	#print(eff)
 
 	powers = list(eff.keys())
@@ -149,19 +151,21 @@ def Sum_Formula(in_for): #Find sum formula
 
 def findc(in_for,num): # Find constant
 	tem = in_for.replace('^','**')
+	# print(tem)
+	# print(num)
+	# print(tem.replace('x', num))
 	constant = -1*Fraction(eval(tem.replace('x', num)))
 	#print(constant)
 	return constant
 
-def find_final(formula,start):
-	formula = Sum_Formula(formula)
-	#print(formula)
-
-	constant = findc(formula,str(Fraction(start)-1))
+def find_final(formula,start,step):
+	# print(start-step)
+	# print(formula)
+	constant = findc(formula,f'({start-step})')
 	#print(constant)
 
 	if constant != 0:
-		final_for = str(constant)+"x^0"+formula
+		final_for = str(constant)+"*x^0"+formula
 	else:
 		final_for = formula
 
@@ -170,5 +174,30 @@ def find_final(formula,start):
 
 #in_for = "x^3-x^2+x"
 
-final = find_final(args.formula,args.start)
-print(final)
+def find_final_step(formula,step,start):
+	final = Sum_Formula(formula,Fraction(step))
+	# print(final)
+
+	hs = re.split(r'\*x\^\d',final)[:-1:]
+	# print(hs)
+
+	mu = re.findall(r'\^(\d)',final)
+	# print(mu)
+
+	hs_new = []
+	for h, m in zip(hs,mu):
+		hs_new.append(Fraction(h)/Fraction(step)**int(m))
+	#print(hs_new)
+
+	final_step = ''
+	for hs, m in zip(hs_new,mu):
+		if hs < 0:
+			final_step += str(hs)+'*x^'+str(m)
+		else:
+			final_step += '+'+str(hs)+'*x^'+str(m)
+	# print(final_step)
+	rs = find_final(final_step,Fraction(start),Fraction(step))
+
+	return rs
+
+print(find_final_step(args.formula,args.step,args.start))

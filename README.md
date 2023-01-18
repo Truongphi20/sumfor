@@ -25,7 +25,7 @@ To use the algorithm, use the following syntax:
     
     python .\sumfor.py -f <formula input> -s <start point> -t <step>
     
-The form of the input formula is a dictionary string with keys being the exponent and the values being the coefficient of that exponent. Example input form of $x^3-2/3x^2+1$ is `'{0:1,2:2/3,3:1}'` (dictionary's keys order isn't matter).
+The form of the input formula is a dictionary string with keys being the exponent and the values being the coefficient of that exponent. Example input form of $x^3-\frac{2}{3}x^2+1$ is `'{0:1,2:2/3,3:1}'` (dictionary's keys order isn't matter).
 
 ##  Example
 ### Example 1

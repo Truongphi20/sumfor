@@ -58,7 +58,7 @@ def formal_for(in_for): # Covert string to formal string
 	infor_add1 = re.sub(r'(^[+-]?|[+-])(x)',r'\g<1>1x',in_for) # Add 1 before x
 	infor_addx = re.sub(r'(x)([^^]|$)',r'\g<1>^1\g<2>',infor_add1) # Add ^1 after x
 	#print(infor_addx)
-	infor_addfr = re.sub(r'([+-]\d+)$',r'\g<1>x^0',infor_addx) # Add x^0 after free efficient
+	infor_addfr = re.sub(r'([+-]\d+|^\d)$',r'\g<1>x^0',infor_addx) # Add x^0 after free efficient
 	#print(infor_addfr)
 	infor_addfir = re.sub(r'^(\d+)',r'+\g<1>',infor_addfr) # Add + before the positive first 
 	return infor_addfir

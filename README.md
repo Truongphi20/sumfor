@@ -57,12 +57,27 @@ Mean:
 
 $$\sum\limits_{i = -1}^x {({x^2} - 1)} = 3 - \frac{5}{6}x + \frac{1}{2}{x^2} + \frac{1}{3}{x^3}$$
 
-### Example 3
 
+### Example 3
+Were we have to find a [Hit Sum Function](#introduction-to-the-hit-sum-function) following:
+
+$$\left. {{S_2}} \right|_{ - 1}^x\left( {{x^3} - 2{x^2} + 1} \right)$$
+
+It means calculating the sum of formula  $x^3 - 2x^2 + 1$ from $-1$ to $x$, the step equals 2. We execute the following command:
+
+    python .\sumfor.py -f x^3-2x^2+1 -s -1 -t 2
+
+Output:
+
+    -13/8*x^0-1/6*x^1-1/2*x^2+1/6*x^3+1/8*x^4
+    
+That mean:
+
+$$\left. {{S_2}} \right|_{_{ - 1}}^x\left( {{x^3} - 2{x^2} + 1} \right) = \frac{{ - 13}}{8} - \frac{1}{6}{x^1} - \frac{1}{2}{x^2} + \frac{1}{6}{x^3} + \frac{1}{8}{x^4}$$
 
 # Algorithm mechanism
 
-## The basis
+## The basic
 Base on the [Triagle matrix of polinomial sum](https://github.com/Truongphi20/Forposum) was created before. Apply a simple rule about the formula for the sum of sum functions:
 
 $$
@@ -81,3 +96,27 @@ $$
 - Add the sum formulas together
 
 ## Introduction to the Hit Sum Function
+
+The Hit Sum Function is just the generality form of the Sigma Sum Function with the additional element is the step.
+
+$$\left. {{S_n}} \right|_a^bf\left( x \right) = f(a) + f(a + n) + f(a + 2n) +  \ldots  + f(b)$$
+
+With the step equal to 1, Hit Sum Function is Sigma Sum.
+
+$$\left. {{S_1}} \right|_a^bf\left( x \right) = \sum\limits_{x = a}^b {f(x)}$$
+
+To calculate the Hit Sum Function, it is necessary to use the step conversion rule of the Hit Sum Function to convert it to a Sigma Sum Function.
+
+The step conversion rule is:
+
+<font size = 10>
+    
+$$\left. {{S_n}} \right|_a^bf(x) = \left. {{S_m}} \right|_{_{a.\frac{m}{n}}}^{^{b.\frac{m}{n}}}f(x.\frac{n}{m})$$
+    
+</font>
+
+Therefore,
+
+$$\left. {{S_n}} \right|_a^bf(x) = \sum\limits_{_{\frac{a}{n}}}^{\frac{x}{n}} {f(n.x)}$$
+
+From here we can calculate the rule as mentioned in the [basic section](#the-basic) and then change the variable $x$ to $\frac{x}{n}$

@@ -162,7 +162,7 @@ def find_final(formula,start,step):
 
 
 def find_final_step(formula,step,start):
-	final = Sum_Formula(formula,Fraction(step))
+	final = Sum_Formula(formula,step)
 	# print(final)
 
 	hs = re.split(r'\*x\^\d',final)[:-1:]
@@ -173,7 +173,7 @@ def find_final_step(formula,step,start):
 
 	hs_new = []
 	for h, m in zip(hs,mu):
-		hs_new.append(Fraction(h)/Fraction(step)**int(m))
+		hs_new.append(Fraction(h)/step**int(m))
 	#print(hs_new)
 
 	final_step = ''
@@ -183,8 +183,8 @@ def find_final_step(formula,step,start):
 		else:
 			final_step += '+'+str(hs)+'*x^'+str(m)
 	# print(final_step)
-	rs = find_final(final_step,Fraction(start),Fraction(step))
+	rs = find_final(final_step,start,step)
 
 	return rs
 
-print(find_final_step(eval(args.formula),args.step,args.start))
+print(find_final_step(eval(args.formula),Fraction(args.step),Fraction(args.start)))

@@ -42,7 +42,7 @@ Result:
 So the sum formula of $x^3-x^2+1$ from $1$ is $\frac{2}{3}x - \frac{3}{4}{x^2} - \frac{1}{6}{x^3} + \frac{1}{4}{x^4}$. 
 
 It means:
-$$\sum\limits_{i = 1}^x {{x^3} - {2x^2} + 1} = \frac{2}{3}x - \frac{3}{4}{x^2} - \frac{1}{6}{x^3} + \frac{1}{4}{x^4}$$
+$$\sum\limits_{i = 1}^x {({x^3} - {2x^2} + 1)} = \frac{2}{3}x - \frac{3}{4}{x^2} - \frac{1}{6}{x^3} + \frac{1}{4}{x^4}$$
 
 ### Example 2
 If we need to compute the sum formula of the $x^2+1$ from $-1$, mean $\sum\limits_{i = -1}^x {({x^2} + 1)}$.

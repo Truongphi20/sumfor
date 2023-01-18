@@ -24,6 +24,8 @@ Output:
 To use the algorithm, use the following syntax:
     
     python .\sumfor.py -f <formula input> -s <start point> -t <step>
+    
+The form of the input formula is a dictionary string with keys being the exponent and the values being the coefficient of that exponent. Example input form of $x^3-2/3x^2+1$ is `'{0:1,2:2/3,3:1}'` (dictionary's keys order isn't matter).
 
 ##  Example
 ### Example 1
@@ -31,7 +33,7 @@ For example, we have to compute the sum formula of the $x^3-2x^2+1$ function fro
 
 Running algorithm by the following syntax to find the sum formula.
 
-    python .\sumfor.py -f x^3-2x^2+1
+    python .\sumfor.py -f '{3:1,2:-2,0:1}'
 
 Result:
 
@@ -43,19 +45,19 @@ It means:
 $$\sum\limits_{i = 1}^x {{x^3} - {2x^2} + 1} = \frac{2}{3}x - \frac{3}{4}{x^2} - \frac{1}{6}{x^3} + \frac{1}{4}{x^4}$$
 
 ### Example 2
-If we need to compute the sum formula of the $x^2-1$ from $-1$, mean $\sum\limits_{i = -1}^x {({x^2} - 1)}$.
+If we need to compute the sum formula of the $x^2+1$ from $-1$, mean $\sum\limits_{i = -1}^x {({x^2} + 1)}$.
 
 Similarly, we execute the following syntax:
 
-       python .\sumfor.py -f x^2-1 -s -1
+       python .\sumfor.py -f '{2:1,0:1}' -s -1
        
 Output:
         
-        3x^0-5/6*x^1+1/2*x^2+1/3*x^3
+        3*x^0+7/6*x^1+1/2*x^2+1/3*x^3
 
 Mean:
 
-$$\sum\limits_{i = -1}^x {({x^2} - 1)} = 3 - \frac{5}{6}x + \frac{1}{2}{x^2} + \frac{1}{3}{x^3}$$
+$$\sum\limits_{i = -1}^x {({x^2} + 1)} = 3 + \frac{7}{6}x + \frac{1}{2}{x^2} + \frac{1}{3}{x^3}$$
 
 
 ### Example 3
@@ -65,7 +67,7 @@ $$\left. {{S_2}} \right|_{ - 1}^x\left( {{x^3} - 2{x^2} + 1} \right)$$
 
 It means calculating the sum of formula  $x^3 - 2x^2 + 1$ from $-1$ to $x$, the step equals 2. We execute the following command:
 
-    python .\sumfor.py -f x^3-2x^2+1 -s -1 -t 2
+    python .\sumfor.py -f '{3:1,2:-2,0:1}' -s -1 -t 2
 
 Output:
 

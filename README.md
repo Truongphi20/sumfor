@@ -122,3 +122,7 @@ Therefore,
 $$\left. {{S_n}} \right|_a^bf(x) = \sum\limits_{_{\frac{a}{n}}}^{\frac{x}{n}} {f(n.x)}$$
 
 From here we can calculate the rule as mentioned in the [basic section](#the-basic) and then change the variable $x$ to $\frac{x}{n}$
+
+# Application
+
+- [Formal Regression](https://github.com/Truongphi20/FormalRegression): from the value points, regression to the polynomial function that generates those values

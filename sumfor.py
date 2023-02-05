@@ -165,10 +165,10 @@ def find_final_step(formula,step,start):
 	final = Sum_Formula(formula,step)
 	# print(final)
 
-	hs = re.split(r'\*x\^\d',final)[:-1:]
+	hs = re.split(r'\*x\^\d+',final)[:-1:]
 	# print(hs)
 
-	mu = re.findall(r'\^(\d)',final)
+	mu = re.findall(r'\^(\d+)',final)
 	# print(mu)
 
 	hs_new = []

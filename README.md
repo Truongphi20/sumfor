@@ -75,7 +75,10 @@ Output:
     
 That mean:
 
-$$\left. {{S_2}} \right|_{_{ - 1}}^x\left( {{x^3} - 2{x^2} + 1} \right) = \frac{{ - 13}}{8} - \frac{1}{6}{x^1} - \frac{1}{2}{x^2} + \frac{1}{6}{x^3} + \frac{1}{8}{x^4}$$
+$$
+\left. S_2 \right|_{-1}^{x} \left( x^3 - 2x^2 + 1 \right)
+= -\frac{13}{8} - \frac{1}{6}x - \frac{1}{2}x^2 + \frac{1}{6}x^3 + \frac{1}{8}x^4
+$$
 
 # Algorithm mechanism
 
